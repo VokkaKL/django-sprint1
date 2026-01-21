@@ -50,7 +50,7 @@ def index(request):
 
 
 def post_detail(request, id):
-    post =next(post for post in posts if post['id'] == id)
+    post = next(post for post in posts if post['id'] == id)
     return render(request, 'blog/detail.html', {'post': post})
 
 
