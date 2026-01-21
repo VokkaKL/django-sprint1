@@ -48,9 +48,13 @@ def index(request):
     reversed_posts = reversed(posts)
     return render(request, 'blog/index.html', {'posts': reversed_posts})
 
+
 def post_detail(request, id):
     post =next(post for post in posts if post['id'] == id)
     return render(request, 'blog/detail.html', {'post': post})
 
+
 def category_posts(request, category_slug):
-    return render(request, 'blog/category.html', {'category_slug': category_slug})
+    return render(request,
+                  'blog/category.html',
+                  {'category_slug': category_slug})
