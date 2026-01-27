@@ -1,4 +1,7 @@
+# Сторонние пакеты
 from django.urls import path
+
+# Локальный код
 from . import views
 
 app_name = 'pages'

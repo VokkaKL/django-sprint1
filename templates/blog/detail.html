@@ -22,7 +22,7 @@
           </a>        
           <ul class="nav  nav-pills">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'blog:index' %}">
+              <a class="nav-link {% if condition %} active {% endif %}" href="{% url 'blog:index' %}">
                 Лента записей
               </a>
             </li>
@@ -42,6 +42,7 @@
     </header>
     <main>
       <div class="container py-5">
+        {% block content %}
         <article>
           <ul>
             <li>
@@ -60,7 +61,10 @@
           <p>
             {{ post.text }}
           </p>          
-        </article>                
+        </article>
+        <!-- Блок основного содержимого для переопределения в дочерних шаблонах -->
+
+        {% endblock %}
       </div>
     </main>
     <footer class="border-top text-center py-3">

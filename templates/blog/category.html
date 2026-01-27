@@ -22,7 +22,7 @@
           </a>        
           <ul class="nav  nav-pills">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'blog:index' %}">
+              <a class="nav-link{% if condition %} active {% endif %}" href="{% url 'blog:index' %}">
                 Лента записей
               </a>
             </li>
@@ -43,7 +43,13 @@
     <main>
       <div class="container py-5">
         <!-- Заголовок страницы с динамическим значением категории -->
+        {% block page_title %}
         <h1>Публикации в категории {{ category_slug }}</h1>
+        {% endblock %}
+
+        <!-- Блок основного содержимого для переопределения в дочерних шаблонах -->
+        {% block content %}
+        {% endblock %}
       </div>
     </main>
     <footer class="border-top text-center py-3">
