@@ -51,7 +51,11 @@ def index(request):
 
 def post_detail(request, id):
     post = next(post for post in posts if post['id'] == id)
-    return render(request, 'blog/detail.html', {'post': post, 'full_text': True})
+    return render(
+        request,
+        'blog/detail.html',
+        {'post': post, 'full_text': True}
+    )
 
 
 def category_posts(request, category_slug):
